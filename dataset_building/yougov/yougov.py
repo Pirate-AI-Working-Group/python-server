@@ -1,8 +1,6 @@
 import sqlite3
 import aiohttp
 
-if  __name__ != "__main__":
-    import utility.helper as helper
 
 headers = {
     'authority': 'yougov.co.uk',
@@ -113,10 +111,7 @@ async def main():
                     cursor.execute('''INSERT INTO opinions (tracker_id, opinion_name, opinion_value,opinion_index)
                                       VALUES (?, ?, ?, ?)''',
                                    (tracker_id, opinion_name, opinion_value,opinion_index))
-            if  __name__ == "__main__":
-                print(poll)
-            else:
-                await helper.run_callbacks("yougov", poll)
+
 async def main2():
     conn = sqlite3.connect('yougov_data.db')
     cursor = conn.cursor()  # Initialize cursor here
